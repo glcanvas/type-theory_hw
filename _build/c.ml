@@ -1,13 +1,7 @@
 open Tree;;
 (*
 let out_buffer = Buffer.create 2048;;
-
 let in_buffer = Buffer.create 2048;;
-
-let b = Lexing.from_string "\a. b";;
-let d =(Parser.lambdaParser Lexer.main)  b;;
-
-
 let rec  write_to_buffer buffer expression=
     let token = expression in
         match token with
@@ -22,21 +16,20 @@ let rec  write_to_buffer buffer expression=
                                         Buffer.add_char buffer ')';
 
             | Variable(a)       ->      Buffer.add_string buffer a;;
-*)
-(*
  write_to_buffer out_buffer d;;
  Buffer.add_char out_buffer '\n';;
  print_string (Buffer.contents out_buffer);;
- *)
+*)
 
 module AlgebraMap = Map.Make(String);;
 module AbstractVar = Map.Make(String);;
 
-let custom_merge a b = (*AlgebraMap.fold AlgebraMap.add a b;;*)
-        List.rev_append a b;;
-
 type algebra =  Var of string (* constant *)
             |   Func of string * algebra * algebra (* for expression like -> smth smth *);;
+let common_variable = "a";;
+
+let custom_merge a b = (*AlgebraMap.fold AlgebraMap.add a b;;*)
+        List.rev_append a b;;
 
 let rec algebra_to_string expression =
     let token = expression in
@@ -45,7 +38,6 @@ let rec algebra_to_string expression =
             | Func(a, b , c) -> String.concat "" [a ; " (" ; (algebra_to_string b) ; " " ; (algebra_to_string c); ")"];;
 
 
-let common_variable = "a";;
 
 let update_variable var =
     let last = (String.length var) - 1 in
@@ -80,24 +72,65 @@ let update_variable var =
                                             else
                                                 let new_var = update_variable free_var in
                                                     (  [], Var(new_var), abstaction_name, new_var) ;;
+
+let rec get_num_of_func_symb equation =
+        match equation with
+            | Var(a) -> 0
+            | Func(a, b, c) -> (get_num_of_func_symb b) + (get_num_of_func_symb c) + 1;;
+
+let is_var equation =
+    match  equation with
+        | Var(a) -> true
+        | _ -> false;;
+
+(*
+term = var -> var = term
+*)
+let first_action item = if (not (is_var (fst item))) && (is_var (snd item))then
+                                        ((snd item), (fst item))
+                                   else
+                                        item;;
+let check_first_action item = if (not (is_var (fst item))) && (is_var (snd item)) then
+                                    true
+                              else
+                                    false;;
+
+let calculate_statement equations =
+       let n1 = 0 in
+            let n2 = 0 in
+                let n3 = 0 in
+
+       (n1,n2,n3);;
+
+
+let solve_equations equations  =
+    let can_update = ref true in
+
+        while !can_update do
+            can_update := false;
+            can_update := List.exists check_first_action equations;
+            let first = List.map first_action equations in
+                can_update := false
+
+        done;;
+
 (*
 \f.\x.(f(f x))
 \f.(\x. f (x x)) (\x. f (x x))
 *)
-let e = Lexing.from_string "\f.\x.(f(f x))";;
+let e = Lexing.from_string "\x. x x";;
 let d =(Parser.lambdaParser Lexer.main)  e;;
 
-let f a = print_string ((algebra_to_string (fst a)) ^ " = ");
-                print_string ((algebra_to_string (snd a)  ) ^ "\n");;
 
-let f1 a b =  print_string ("key: " ^ a ^ " value: " ^ b ^ "\n");;
+
 
 let empty_bounded_names = AbstractVar.empty;;
 let equations, lambda_type, bounded_names, last_free_name = build_system d common_variable empty_bounded_names;;
 
-List.iter f equations;;
+List.iter (fun a -> print_string ((algebra_to_string (fst a)) ^ " = ");
+                               print_string ((algebra_to_string (snd a)  ) ^ "\n")) equations;;
+
 print_string "=======\n";;
-AbstractVar.iter f1 bounded_names;;
+AbstractVar.iter (fun a b ->  print_string ("key: " ^ a ^ " value: " ^ b ^ "\n")) bounded_names;;
 print_string "==========\n";;
 print_string ((algebra_to_string lambda_type) ^ "\n");;
-

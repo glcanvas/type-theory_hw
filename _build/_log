@@ -2,9 +2,7 @@
 # Target: c.ml.depends, tags: { extension:ml, file:c.ml, ocaml, ocamldep, quiet }
 /usr/bin/ocamldep -modules c.ml > c.ml.depends
 + /usr/bin/ocamldep -modules c.ml > c.ml.depends
-File "c.ml", line 87, characters 28-30:
-Warning 14: illegal backslash escape in string.
-File "c.ml", line 87, characters 31-33:
+File "c.ml", line 121, characters 28-30:
 Warning 14: illegal backslash escape in string.
 # Target: lexer.ml.depends, tags: { extension:ml, file:lexer.ml, ocaml, ocamldep, quiet }
 /usr/bin/ocamldep -modules lexer.ml > lexer.ml.depends # cached
@@ -21,10 +19,10 @@ Warning 14: illegal backslash escape in string.
 # Target: c.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:c.cmo, file:c.ml, implem, ocaml, quiet }
 /usr/bin/ocamlc -c -o c.cmo c.ml
 + /usr/bin/ocamlc -c -o c.cmo c.ml
-File "c.ml", line 87, characters 28-30:
+File "c.ml", line 121, characters 28-30:
 Warning 14: illegal backslash escape in string.
-File "c.ml", line 87, characters 31-33:
-Warning 14: illegal backslash escape in string.
+File "c.ml", line 112, characters 16-21:
+Warning 26: unused variable first.
 # Target: parser.ml.depends, tags: { extension:ml, file:parser.ml, ocaml, ocamldep, quiet }
 /usr/bin/ocamldep -modules parser.ml > parser.ml.depends # cached
 # Target: tree.cmx, tags: { compile, extension:cmx, extension:ml, file:tree.cmx, file:tree.ml, implem, native, ocaml, quiet }
@@ -36,10 +34,10 @@ Warning 14: illegal backslash escape in string.
 # Target: c.cmx, tags: { compile, extension:cmx, extension:ml, file:c.cmx, file:c.ml, implem, native, ocaml, quiet }
 /usr/bin/ocamlopt -c -o c.cmx c.ml
 + /usr/bin/ocamlopt -c -o c.cmx c.ml
-File "c.ml", line 87, characters 28-30:
+File "c.ml", line 121, characters 28-30:
 Warning 14: illegal backslash escape in string.
-File "c.ml", line 87, characters 31-33:
-Warning 14: illegal backslash escape in string.
+File "c.ml", line 112, characters 16-21:
+Warning 26: unused variable first.
 # Target: c.native, tags: { dont_link_with, extension:native, file:c.native, link, native, ocaml, program, quiet }
 /usr/bin/ocamlopt tree.cmx parser.cmx lexer.cmx c.cmx -o c.native
 # Compilation successful.

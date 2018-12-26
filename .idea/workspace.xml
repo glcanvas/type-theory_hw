@@ -5,9 +5,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/_digests" beforeDir="false" afterPath="$PROJECT_DIR$/_build/_digests" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/_log" beforeDir="false" afterPath="$PROJECT_DIR$/_build/_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/c.cmi" beforeDir="false" afterPath="$PROJECT_DIR$/_build/c.cmi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/c.cmo" beforeDir="false" afterPath="$PROJECT_DIR$/_build/c.cmo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/c.cmx" beforeDir="false" afterPath="$PROJECT_DIR$/_build/c.cmx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/c.ml" beforeDir="false" afterPath="$PROJECT_DIR$/_build/c.ml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/c.ml.depends" beforeDir="false" afterPath="$PROJECT_DIR$/_build/c.ml.depends" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/c.native" beforeDir="false" afterPath="$PROJECT_DIR$/_build/c.native" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/c.o" beforeDir="false" afterPath="$PROJECT_DIR$/_build/c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/c.ml" beforeDir="false" afterPath="$PROJECT_DIR$/c.ml" afterDir="false" />
@@ -61,7 +62,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Makefile" value="280" />
-          <entry key="ml" value="9926" />
+          <entry key="ml" value="11095" />
           <entry key="mll" value="216" />
           <entry key="mly" value="862" />
           <entry key="sh" value="4" />
@@ -69,7 +70,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="OCaml file" value="9926" />
+          <entry key="OCaml file" value="11095" />
           <entry key="PLAIN_TEXT" value="1362" />
         </counts>
       </usages-collector>
@@ -107,8 +108,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/c.ml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="86" column="42" selection-start-line="86" selection-start-column="42" selection-end-line="86" selection-end-column="42" />
+            <state relative-caret-position="306">
+              <caret line="105" column="16" selection-start-line="105" selection-start-column="16" selection-end-line="105" selection-end-column="35" />
+              <folding>
+                <element signature="e#4592#4701#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -130,6 +134,7 @@
       <find>token</find>
       <find>Buffer.add_string</find>
       <find>new_var</find>
+      <find>equations</find>
     </findStrings>
     <replaceStrings>
       <replace>token</replace>
@@ -248,12 +253,12 @@
       <workItem from="1545388398257" duration="477000" />
       <workItem from="1545471297847" duration="347000" />
       <workItem from="1545733431165" duration="809000" />
-      <workItem from="1545817910334" duration="4532000" />
+      <workItem from="1545817910334" duration="7925000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71475000" />
+    <option name="totallyTimeSpent" value="74868000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -399,8 +404,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/c.ml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="86" column="42" selection-start-line="86" selection-start-column="42" selection-end-line="86" selection-end-column="42" />
+        <state relative-caret-position="306">
+          <caret line="105" column="16" selection-start-line="105" selection-start-column="16" selection-end-line="105" selection-end-column="35" />
+          <folding>
+            <element signature="e#4592#4701#0" />
+          </folding>
         </state>
       </provider>
     </entry>
