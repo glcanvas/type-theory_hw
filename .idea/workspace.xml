@@ -62,7 +62,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Makefile" value="280" />
-          <entry key="ml" value="11095" />
+          <entry key="ml" value="12965" />
           <entry key="mll" value="216" />
           <entry key="mly" value="862" />
           <entry key="sh" value="4" />
@@ -70,7 +70,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="OCaml file" value="11095" />
+          <entry key="OCaml file" value="12965" />
           <entry key="PLAIN_TEXT" value="1362" />
         </counts>
       </usages-collector>
@@ -108,11 +108,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/c.ml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="105" column="16" selection-start-line="105" selection-start-column="16" selection-end-line="105" selection-end-column="35" />
-              <folding>
-                <element signature="e#4592#4701#0" />
-              </folding>
+            <state relative-caret-position="-123">
+              <caret line="131" column="14" lean-forward="true" selection-start-line="131" selection-start-column="14" selection-end-line="131" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -135,6 +132,7 @@
       <find>Buffer.add_string</find>
       <find>new_var</find>
       <find>equations</find>
+      <find>get_num_of_func_symb</find>
     </findStrings>
     <replaceStrings>
       <replace>token</replace>
@@ -253,12 +251,12 @@
       <workItem from="1545388398257" duration="477000" />
       <workItem from="1545471297847" duration="347000" />
       <workItem from="1545733431165" duration="809000" />
-      <workItem from="1545817910334" duration="7925000" />
+      <workItem from="1545817910334" duration="15118000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74868000" />
+    <option name="totallyTimeSpent" value="82061000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -271,7 +269,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6318584" visible="true" weight="0.23548922" />
       <window_info id="Structure" order="1" sideWeight="0.3681416" side_tool="true" weight="0.21890548" />
@@ -282,7 +279,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3828452" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3075314" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -404,11 +401,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/c.ml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="105" column="16" selection-start-line="105" selection-start-column="16" selection-end-line="105" selection-end-column="35" />
-          <folding>
-            <element signature="e#4592#4701#0" />
-          </folding>
+        <state relative-caret-position="-123">
+          <caret line="131" column="14" lean-forward="true" selection-start-line="131" selection-start-column="14" selection-end-line="131" selection-end-column="14" />
         </state>
       </provider>
     </entry>

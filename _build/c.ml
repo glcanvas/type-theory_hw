@@ -23,6 +23,7 @@ let rec  write_to_buffer buffer expression=
 
 module AlgebraMap = Map.Make(String);;
 module AbstractVar = Map.Make(String);;
+exception MatchEquation of string
 
 type algebra =  Var of string (* constant *)
             |   Func of string * algebra * algebra (* for expression like -> smth smth *);;
@@ -73,32 +74,74 @@ let update_variable var =
                                                 let new_var = update_variable free_var in
                                                     (  [], Var(new_var), abstaction_name, new_var) ;;
 
-let rec get_num_of_func_symb equation =
-        match equation with
-            | Var(a) -> 0
-            | Func(a, b, c) -> (get_num_of_func_symb b) + (get_num_of_func_symb c) + 1;;
+
+
 
 let is_var equation =
     match  equation with
         | Var(a) -> true
         | _ -> false;;
 
+let second_action item =
+    if (not (is_var (fst item))) && (not (is_var (snd item))) then
+        match item with
+        | Func(a, b, c), Func(d, e, f) ->   [(b, e); (c, f)]
+        | _ -> []
+    else
+        [item];;
+
 (*
-term = var -> var = term
+define triple values x y z
+from conspect
 *)
-let first_action item = if (not (is_var (fst item))) && (is_var (snd item))then
-                                        ((snd item), (fst item))
-                                   else
-                                        item;;
-let check_first_action item = if (not (is_var (fst item))) && (is_var (snd item)) then
-                                    true
-                              else
-                                    false;;
+let rec help_calculate_num_of_vars expr mp =
+    match expr with
+    | Var(a) -> if AbstractVar.mem a mp then
+                    let num = AbstractVar.find a mp in
+                        AbstractVar.add a (num + 1) mp
+                else
+                    AbstractVar.add a 1 mp
+    | Func(a, b, c) -> let result_b = help_calculate_num_of_vars b mp in
+                            let result_c = help_calculate_num_of_vars c result_b in
+                                result_c;;
+
+(* first number *)
+let calculate_first item =
+    let first = fst item in
+    let emp_mp = AbstractVar.empty in
+        let result = help_calculate_num_of_vars first emp_mp in
+            let ok_vars = AbstractVar.filter (fun a b -> b > 1) result in
+                AbstractVar.cardinal ok_vars;;
+(*end first number*)
+
+(*second number*)
+let rec help_calc_second exp =
+        match exp with
+            | Var(a) -> 0
+            | Func(a, b, c) -> (help_calc_second b) + (help_calc_second c) + 1;;
+
+let calculate_second item =
+        let f = help_calc_second (fst item) in
+            let s = help_calc_second (snd item) in
+               f + s;;
+(*end second number*)
+
+(*third number*)
+let calculate_third item =
+    match item with
+    | Var(a), Var(b) -> if a == b then 1 else 0
+    | Func(b, c, d), Var(a) -> 1
+    | _ -> 0;;
+(*end third number*)
 
 let calculate_statement equations =
-       let n1 = 0 in
-            let n2 = 0 in
-                let n3 = 0 in
+       let n1 = ref 0 in
+            let n2 = ref 0 in
+                let n3 = ref 0 in
+
+                    let array_of_tuple = List.map
+                        (fun it-> (calculate_first it) + (calculate_second it) + (calculate_third it))
+                            equations in
 
        (n1,n2,n3);;
 
@@ -108,17 +151,19 @@ let solve_equations equations  =
 
         while !can_update do
             can_update := false;
-            can_update := List.exists check_first_action equations;
-            let first = List.map first_action equations in
-                can_update := false
+            (*term = var -> var = term*)
+            let first = List.map (fun item -> if (not (is_var (fst item))) && (is_var (snd item)) then ((snd item), (fst item)) else item) equations in
+                (*term = term -> [equiv_1..equiv_n]*)
+                let second = List.fold_left (fun a b -> a @ b) [] (List.map second_action first) in
 
+                    can_update := false
         done;;
 
 (*
 \f.\x.(f(f x))
 \f.(\x. f (x x)) (\x. f (x x))
 *)
-let e = Lexing.from_string "\x. x x";;
+let e = Lexing.from_string "(\x.x)(\y.y)";;
 let d =(Parser.lambdaParser Lexer.main)  e;;
 
 
@@ -129,7 +174,6 @@ let equations, lambda_type, bounded_names, last_free_name = build_system d commo
 
 List.iter (fun a -> print_string ((algebra_to_string (fst a)) ^ " = ");
                                print_string ((algebra_to_string (snd a)  ) ^ "\n")) equations;;
-
 print_string "=======\n";;
 AbstractVar.iter (fun a b ->  print_string ("key: " ^ a ^ " value: " ^ b ^ "\n")) bounded_names;;
 print_string "==========\n";;
