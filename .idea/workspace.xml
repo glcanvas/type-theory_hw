@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ba2aba95-38f6-4b7f-ae4b-649773d9388a" name="Default Changelist" comment="" />
+    <list default="true" id="ba2aba95-38f6-4b7f-ae4b-649773d9388a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/_digests" beforeDir="false" afterPath="$PROJECT_DIR$/_build/_digests" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/_log" beforeDir="false" afterPath="$PROJECT_DIR$/_build/_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/c.cmx" beforeDir="false" afterPath="$PROJECT_DIR$/_build/c.cmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/c.ml" beforeDir="false" afterPath="$PROJECT_DIR$/_build/c.ml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/c.ml.depends" beforeDir="false" afterPath="$PROJECT_DIR$/_build/c.ml.depends" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/c.native" beforeDir="false" afterPath="$PROJECT_DIR$/_build/c.native" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/c.o" beforeDir="false" afterPath="$PROJECT_DIR$/_build/c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/c.ml" beforeDir="false" afterPath="$PROJECT_DIR$/c.ml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +61,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Makefile" value="280" />
-          <entry key="ml" value="9054" />
+          <entry key="ml" value="9926" />
           <entry key="mll" value="216" />
           <entry key="mly" value="862" />
           <entry key="sh" value="4" />
@@ -59,7 +69,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="OCaml file" value="9054" />
+          <entry key="OCaml file" value="9926" />
           <entry key="PLAIN_TEXT" value="1362" />
         </counts>
       </usages-collector>
@@ -97,8 +107,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/c.ml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+            <state relative-caret-position="188">
+              <caret line="86" column="42" selection-start-line="86" selection-start-column="42" selection-end-line="86" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -238,12 +248,12 @@
       <workItem from="1545388398257" duration="477000" />
       <workItem from="1545471297847" duration="347000" />
       <workItem from="1545733431165" duration="809000" />
-      <workItem from="1545817910334" duration="1848000" />
+      <workItem from="1545817910334" duration="4532000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68791000" />
+    <option name="totallyTimeSpent" value="71475000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -267,7 +277,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.41022965" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3828452" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -389,8 +399,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/c.ml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+        <state relative-caret-position="188">
+          <caret line="86" column="42" selection-start-line="86" selection-start-column="42" selection-end-line="86" selection-end-column="42" />
         </state>
       </provider>
     </entry>

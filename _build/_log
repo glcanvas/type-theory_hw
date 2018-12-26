@@ -1,15 +1,45 @@
 ### Starting build.
 # Target: c.ml.depends, tags: { extension:ml, file:c.ml, ocaml, ocamldep, quiet }
 /usr/bin/ocamldep -modules c.ml > c.ml.depends
++ /usr/bin/ocamldep -modules c.ml > c.ml.depends
+File "c.ml", line 87, characters 28-30:
+Warning 14: illegal backslash escape in string.
+File "c.ml", line 87, characters 31-33:
+Warning 14: illegal backslash escape in string.
+# Target: lexer.ml.depends, tags: { extension:ml, file:lexer.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep -modules lexer.ml > lexer.ml.depends # cached
+# Target: parser.mli.depends, tags: { extension:mli, file:parser.mli, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep -modules parser.mli > parser.mli.depends # cached
 # Target: tree.ml.depends, tags: { extension:ml, file:tree.ml, ocaml, ocamldep, quiet }
 /usr/bin/ocamldep -modules tree.ml > tree.ml.depends # cached
 # Target: tree.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:tree.cmo, file:tree.ml, implem, ocaml, quiet }
 /usr/bin/ocamlc -c -o tree.cmo tree.ml # cached
+# Target: parser.cmi, tags: { byte, compile, extension:mli, file:parser.mli, interf, ocaml, quiet }
+/usr/bin/ocamlc -c -o parser.cmi parser.mli # cached
+# Target: lexer.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:lexer.cmo, file:lexer.ml, implem, ocaml, quiet }
+/usr/bin/ocamlc -c -o lexer.cmo lexer.ml # cached
 # Target: c.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:c.cmo, file:c.ml, implem, ocaml, quiet }
 /usr/bin/ocamlc -c -o c.cmo c.ml
 + /usr/bin/ocamlc -c -o c.cmo c.ml
-File "c.ml", line 111, characters 11-13:
-Error: This expression has type string but an expression was expected of type
-         unit -> 'a
-Command exited with code 2.
-# Compilation unsuccessful.
+File "c.ml", line 87, characters 28-30:
+Warning 14: illegal backslash escape in string.
+File "c.ml", line 87, characters 31-33:
+Warning 14: illegal backslash escape in string.
+# Target: parser.ml.depends, tags: { extension:ml, file:parser.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep -modules parser.ml > parser.ml.depends # cached
+# Target: tree.cmx, tags: { compile, extension:cmx, extension:ml, file:tree.cmx, file:tree.ml, implem, native, ocaml, quiet }
+/usr/bin/ocamlopt -c -o tree.cmx tree.ml # cached
+# Target: parser.cmx, tags: { compile, extension:cmx, extension:ml, file:parser.cmx, file:parser.ml, implem, native, ocaml, quiet }
+/usr/bin/ocamlopt -c -o parser.cmx parser.ml # cached
+# Target: lexer.cmx, tags: { compile, extension:cmx, extension:ml, file:lexer.cmx, file:lexer.ml, implem, native, ocaml, quiet }
+/usr/bin/ocamlopt -c -o lexer.cmx lexer.ml # cached
+# Target: c.cmx, tags: { compile, extension:cmx, extension:ml, file:c.cmx, file:c.ml, implem, native, ocaml, quiet }
+/usr/bin/ocamlopt -c -o c.cmx c.ml
++ /usr/bin/ocamlopt -c -o c.cmx c.ml
+File "c.ml", line 87, characters 28-30:
+Warning 14: illegal backslash escape in string.
+File "c.ml", line 87, characters 31-33:
+Warning 14: illegal backslash escape in string.
+# Target: c.native, tags: { dont_link_with, extension:native, file:c.native, link, native, ocaml, program, quiet }
+/usr/bin/ocamlopt tree.cmx parser.cmx lexer.cmx c.cmx -o c.native
+# Compilation successful.

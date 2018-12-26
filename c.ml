@@ -30,6 +30,7 @@ let rec  write_to_buffer buffer expression=
  *)
 
 module AlgebraMap = Map.Make(String);;
+module AbstractVar = Map.Make(String);;
 
 let custom_merge a b = (*AlgebraMap.fold AlgebraMap.add a b;;*)
         List.rev_append a b;;
@@ -44,7 +45,7 @@ let rec algebra_to_string expression =
             | Func(a, b , c) -> String.concat "" [a ; " (" ; (algebra_to_string b) ; " " ; (algebra_to_string c); ")"];;
 
 
-let common_variable = "_a";;
+let common_variable = "a";;
 
 let update_variable var =
     let last = (String.length var) - 1 in
@@ -58,38 +59,45 @@ let update_variable var =
  let rec build_system expression free_var abstaction_name =
     let token = expression in
         match token with
-            | Application (a, b) ->  let union_a, term_a, last_var_a =  build_system a free_var in
-                                        let  union_b, term_b, last_var_b = build_system b last_var_a in
-
+            | Application (a, b) ->  let union_a, term_a, last_map_a, last_var_a =  build_system a free_var abstaction_name in
+                                        let  union_b, term_b, last_map_b, last_var_b = build_system b last_var_a abstaction_name in
                                             let new_var = update_variable last_var_b in
+                                                let merged_equation = custom_merge union_a union_b in
+                                                    let merged_map = AbstractVar.fold AbstractVar.add last_map_a last_map_b in
+                                                            let added_equation = merged_equation @ [(term_a, (Func ("->", term_b, Var(new_var))))] in
+                                                        (added_equation, Var(new_var), merged_map, new_var)
 
-                                                let merged_map = custom_merge union_a union_b in
-                                                    (*let added_map = AlgebraMap.add last_var_a (Func ("->", term_b, Var(new_var))) merged_map in*)
-                                                            let added_map = merged_map @ [(last_var_a, (Func ("->", term_b, Var(new_var))))] in
-                                                        (added_map,
-                                                        Var(new_var),
-                                                        new_var)
+            | Abstraction (a, b) ->     let new_free_var = update_variable free_var in
+                                            let updated_map = AbstractVar.add a new_free_var abstaction_name in
+                                                    let union_b, term_b, last_map_b, last_var_b = build_system b new_free_var updated_map in
+                                                        let new_var = update_variable last_var_b in
+                                                            (union_b, Func ("->", Var(new_free_var), term_b), last_map_b, new_var)
 
-
-            | Abstraction (a, b) -> let union_b, term_b, last_var_b = build_system b free_var in
-                                        let new_var = update_variable last_var_b in
-                                            (union_b, Func ("->", Var(new_var), term_b), new_var)
-
-            | Variable (a)       -> let new_var = update_variable free_var in
-                                            (*AlgebraMap.empty*)
-                                        (  [], Var(new_var), new_var) ;;
-(*let e = Lexing.from_string "(\x.x)(\y.y)";;
+            | Variable (a)       ->     let contains_variable = AbstractVar.mem a abstaction_name in
+                                            if contains_variable then
+                                                let variable_name = AbstractVar.find a abstaction_name in
+                                                    (  [], Var(variable_name), abstaction_name, free_var)
+                                            else
+                                                let new_var = update_variable free_var in
+                                                    (  [], Var(new_var), abstaction_name, new_var) ;;
+(*
+\f.\x.(f(f x))
+\f.(\x. f (x x)) (\x. f (x x))
+*)
+let e = Lexing.from_string "\f.\x.(f(f x))";;
 let d =(Parser.lambdaParser Lexer.main)  e;;
 
-let f a = print_string ((fst a) ^ " ");
+let f a = print_string ((algebra_to_string (fst a)) ^ " = ");
                 print_string ((algebra_to_string (snd a)  ) ^ "\n");;
 
-let a,b,c = build_system d common_variable;;
+let f1 a b =  print_string ("key: " ^ a ^ " value: " ^ b ^ "\n");;
 
-List.iter f a;;
-(*
-AlgebraMap.iter f a;;
-*)
-print_string ((algebra_to_string b) ^ "\n");;
-print_string (c ^ "\n");;
-*)
+let empty_bounded_names = AbstractVar.empty;;
+let equations, lambda_type, bounded_names, last_free_name = build_system d common_variable empty_bounded_names;;
+
+List.iter f equations;;
+print_string "=======\n";;
+AbstractVar.iter f1 bounded_names;;
+print_string "==========\n";;
+print_string ((algebra_to_string lambda_type) ^ "\n");;
+
