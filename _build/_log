@@ -1,0 +1,15 @@
+### Starting build.
+# Target: c.ml.depends, tags: { extension:ml, file:c.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep -modules c.ml > c.ml.depends
+# Target: tree.ml.depends, tags: { extension:ml, file:tree.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep -modules tree.ml > tree.ml.depends # cached
+# Target: tree.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:tree.cmo, file:tree.ml, implem, ocaml, quiet }
+/usr/bin/ocamlc -c -o tree.cmo tree.ml # cached
+# Target: c.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:c.cmo, file:c.ml, implem, ocaml, quiet }
+/usr/bin/ocamlc -c -o c.cmo c.ml
++ /usr/bin/ocamlc -c -o c.cmo c.ml
+File "c.ml", line 111, characters 11-13:
+Error: This expression has type string but an expression was expected of type
+         unit -> 'a
+Command exited with code 2.
+# Compilation unsuccessful.
