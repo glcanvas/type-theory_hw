@@ -2,15 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba2aba95-38f6-4b7f-ae4b-649773d9388a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/solve.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_digests" beforeDir="false" afterPath="$PROJECT_DIR$/_build/_digests" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_log" beforeDir="false" afterPath="$PROJECT_DIR$/_build/_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/_digests" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/_log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/c.cmi" beforeDir="false" afterPath="$PROJECT_DIR$/_build/c.cmi" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/c.cmo" beforeDir="false" afterPath="$PROJECT_DIR$/_build/c.cmo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/c.cmx" beforeDir="false" afterPath="$PROJECT_DIR$/_build/c.cmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/c.ml" beforeDir="false" afterPath="$PROJECT_DIR$/_build/c.ml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/c.native" beforeDir="false" afterPath="$PROJECT_DIR$/_build/c.native" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/c.o" beforeDir="false" afterPath="$PROJECT_DIR$/_build/c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/c.cmx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/c.ml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/c.ml.depends" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/c.native" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/lexer.cmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/lexer.cmo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/lexer.cmx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/lexer.ml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/lexer.ml.depends" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/lexer.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/ocamlc.where" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/parser.cmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/parser.cmx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/parser.ml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/parser.ml.depends" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/parser.mli" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/parser.mli.depends" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/parser.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/tree.cmi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/tree.cmo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/tree.cmx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/tree.ml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/tree.ml.depends" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/tree.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/c.ml" beforeDir="false" afterPath="$PROJECT_DIR$/c.ml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -27,42 +49,43 @@
           <entry key="project.closed" value="11" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.5" value="5" />
+          <entry key="project.open.time.5" value="6" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.opened" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="Makefile" value="2" />
           <entry key="iml" value="5" />
-          <entry key="ml" value="16" />
+          <entry key="ml" value="17" />
           <entry key="mli" value="1" />
           <entry key="mll" value="3" />
           <entry key="mly" value="3" />
           <entry key="native" value="1" />
           <entry key="sh" value="2" />
+          <entry key="txt" value="1" />
           <entry key="xml" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="5" />
-          <entry key="OCaml file" value="16" />
+          <entry key="OCaml file" value="17" />
           <entry key="OCaml interface file" value="1" />
-          <entry key="PLAIN_TEXT" value="11" />
+          <entry key="PLAIN_TEXT" value="12" />
           <entry key="XML" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Makefile" value="280" />
-          <entry key="ml" value="12965" />
+          <entry key="ml" value="19001" />
           <entry key="mll" value="216" />
           <entry key="mly" value="862" />
           <entry key="sh" value="4" />
@@ -70,7 +93,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="OCaml file" value="12965" />
+          <entry key="OCaml file" value="19001" />
           <entry key="PLAIN_TEXT" value="1362" />
         </counts>
       </usages-collector>
@@ -108,8 +131,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/c.ml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-123">
-              <caret line="131" column="14" lean-forward="true" selection-start-line="131" selection-start-column="14" selection-end-line="131" selection-end-column="14" />
+            <state relative-caret-position="485">
+              <caret line="285" column="34" selection-start-line="285" selection-start-column="34" selection-end-line="285" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/solve.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
             </state>
           </provider>
         </entry>
@@ -131,8 +163,13 @@
       <find>token</find>
       <find>Buffer.add_string</find>
       <find>new_var</find>
-      <find>equations</find>
       <find>get_num_of_func_symb</find>
+      <find>==</find>
+      <find>fold_le</find>
+      <find>uni</find>
+      <find>equations</find>
+      <find>fourth_action</find>
+      <find>fourth_action_replace</find>
     </findStrings>
     <replaceStrings>
       <replace>token</replace>
@@ -157,6 +194,7 @@
         <option value="$PROJECT_DIR$/a.ml" />
         <option value="$PROJECT_DIR$/tree.ml" />
         <option value="$PROJECT_DIR$/b.ml" />
+        <option value="$PROJECT_DIR$/solve.txt" />
         <option value="$PROJECT_DIR$/c.ml" />
       </list>
     </option>
@@ -179,6 +217,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -191,13 +230,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545131741243" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546014282467" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/c.ml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -251,12 +289,14 @@
       <workItem from="1545388398257" duration="477000" />
       <workItem from="1545471297847" duration="347000" />
       <workItem from="1545733431165" duration="809000" />
-      <workItem from="1545817910334" duration="15118000" />
+      <workItem from="1545817910334" duration="18310000" />
+      <workItem from="1545930880527" duration="3118000" />
+      <workItem from="1545979083749" duration="10300000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82061000" />
+    <option name="totallyTimeSpent" value="98671000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -268,9 +308,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6318584" visible="true" weight="0.23548922" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6318584" visible="true" weight="0.12106136" />
       <window_info id="Structure" order="1" sideWeight="0.3681416" side_tool="true" weight="0.21890548" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -356,7 +397,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../nikitaparser.ml" />
     <entry file="file://$PROJECT_DIR$/parser/lexer.mll">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -371,6 +411,7 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../nikitaparser.ml" />
     <entry file="file://$PROJECT_DIR$/a.ml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -399,10 +440,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/solve.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/c.ml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-123">
-          <caret line="131" column="14" lean-forward="true" selection-start-line="131" selection-start-column="14" selection-end-line="131" selection-end-column="14" />
+        <state relative-caret-position="485">
+          <caret line="285" column="34" selection-start-line="285" selection-start-column="34" selection-end-line="285" selection-end-column="34" />
         </state>
       </provider>
     </entry>

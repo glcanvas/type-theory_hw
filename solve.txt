@@ -1,0 +1,29 @@
+let solve_equations equations  =
+    let can_update = ref true in
+    let begin_statement = ref (calculate_statement equations) in
+    let tmp_equations = ref equations in
+
+        while !can_update do
+            can_update := false;
+            (*term = var -> var = term*)
+            let first = List.map (fun item -> if (not (is_var (fst item))) && (is_var (snd item)) then ((snd item), (fst item)) else item) (!tmp_equations) in
+                (*term = term -> [equiv_1..equiv_n]*)
+                let second = List.fold_left (fun a b -> a @ b) [] (List.map second_action first) in
+                    (* if Var(a) = Var(b) -> remove them *)
+                    let delete_equal = List.filter
+                            (
+                            fun item -> match item with
+                                        | Var(a), Var(b) -> if a=b then false else true
+                                        | _ -> true
+                            ) second in
+                        (* replace all occur variable more than one time*)
+                        let fourth = fourth_action delete_equal in
+                            let current_satement = calculate_statement fourth in
+                                if current_satement = !begin_statement then
+                                    can_update := false
+                                    tmp_equations := fourth
+                                else
+                                    tmp_equations := fourth;
+                                begin_statement := current_satement
+
+        done;;
