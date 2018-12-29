@@ -35,7 +35,7 @@
         <counts>
           <entry key="Makefile" value="2" />
           <entry key="iml" value="5" />
-          <entry key="ml" value="17" />
+          <entry key="ml" value="18" />
           <entry key="mli" value="1" />
           <entry key="mll" value="3" />
           <entry key="mly" value="3" />
@@ -48,7 +48,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="5" />
-          <entry key="OCaml file" value="17" />
+          <entry key="OCaml file" value="18" />
           <entry key="OCaml interface file" value="1" />
           <entry key="PLAIN_TEXT" value="12" />
           <entry key="XML" value="6" />
@@ -57,7 +57,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Makefile" value="280" />
-          <entry key="ml" value="21407" />
+          <entry key="ml" value="23740" />
           <entry key="mll" value="216" />
           <entry key="mly" value="862" />
           <entry key="sh" value="4" />
@@ -65,7 +65,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="OCaml file" value="21407" />
+          <entry key="OCaml file" value="23740" />
           <entry key="PLAIN_TEXT" value="1362" />
         </counts>
       </usages-collector>
@@ -103,8 +103,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/c.ml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1790">
-              <caret line="252" column="129" selection-start-line="252" selection-start-column="129" selection-end-line="252" selection-end-column="129" />
+            <state relative-caret-position="173">
+              <caret line="316" column="44" selection-start-line="316" selection-start-column="44" selection-end-line="316" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -142,10 +142,13 @@
       <find>equations</find>
       <find>fourth_action_replace</find>
       <find>fourth_action</find>
-      <find>build_system</find>
       <find>solve_equations</find>
       <find>delete_repeat</find>
       <find>(</find>
+      <find>build_system</find>
+      <find>fold_left</find>
+      <find>is_solved_form</find>
+      <find>AbstractVar.map</find>
     </findStrings>
     <replaceStrings>
       <replace>token</replace>
@@ -171,6 +174,7 @@
         <option value="$PROJECT_DIR$/tree.ml" />
         <option value="$PROJECT_DIR$/b.ml" />
         <option value="$PROJECT_DIR$/solve.txt" />
+        <option value="$PROJECT_DIR$/_build/c.ml" />
         <option value="$PROJECT_DIR$/c.ml" />
       </list>
     </option>
@@ -268,12 +272,12 @@
       <workItem from="1545817910334" duration="18310000" />
       <workItem from="1545930880527" duration="3118000" />
       <workItem from="1545979083749" duration="14751000" />
-      <workItem from="1546091511492" duration="5957000" />
+      <workItem from="1546091511492" duration="12684000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109079000" />
+    <option name="totallyTimeSpent" value="115806000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -297,7 +301,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3075314" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21025105" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -424,10 +428,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/_build/c.ml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="710">
+          <caret line="296" column="59" selection-start-line="296" selection-start-column="59" selection-end-line="296" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/c.ml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1790">
-          <caret line="252" column="129" selection-start-line="252" selection-start-column="129" selection-end-line="252" selection-end-column="129" />
+        <state relative-caret-position="173">
+          <caret line="316" column="44" selection-start-line="316" selection-start-column="44" selection-end-line="316" selection-end-column="44" />
         </state>
       </provider>
     </entry>
