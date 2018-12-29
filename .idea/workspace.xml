@@ -2,37 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba2aba95-38f6-4b7f-ae4b-649773d9388a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/solve.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_digests" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/_log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/c.cmi" beforeDir="false" afterPath="$PROJECT_DIR$/_build/c.cmi" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_build/c.cmo" beforeDir="false" afterPath="$PROJECT_DIR$/_build/c.cmo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/c.cmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/c.ml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/c.ml.depends" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/c.native" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/c.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/lexer.cmi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/lexer.cmo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/lexer.cmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/lexer.ml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/lexer.ml.depends" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/lexer.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/ocamlc.where" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/parser.cmi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/parser.cmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/parser.ml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/parser.ml.depends" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/parser.mli" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/parser.mli.depends" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/parser.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/tree.cmi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/tree.cmo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/tree.cmx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/tree.ml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/tree.ml.depends" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/tree.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/c.ml" beforeDir="false" afterPath="$PROJECT_DIR$/c.ml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -46,7 +18,7 @@
     <session id="-28027182">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
+          <entry key="project.closed" value="12" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="2" />
@@ -55,8 +27,8 @@
           <entry key="project.open.time.5" value="6" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.open.time.9" value="3" />
+          <entry key="project.opened" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -85,7 +57,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Makefile" value="280" />
-          <entry key="ml" value="19001" />
+          <entry key="ml" value="21407" />
           <entry key="mll" value="216" />
           <entry key="mly" value="862" />
           <entry key="sh" value="4" />
@@ -93,7 +65,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="OCaml file" value="19001" />
+          <entry key="OCaml file" value="21407" />
           <entry key="PLAIN_TEXT" value="1362" />
         </counts>
       </usages-collector>
@@ -131,8 +103,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/c.ml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="285" column="34" selection-start-line="285" selection-start-column="34" selection-end-line="285" selection-end-column="34" />
+            <state relative-caret-position="1790">
+              <caret line="252" column="129" selection-start-line="252" selection-start-column="129" selection-end-line="252" selection-end-column="129" />
             </state>
           </provider>
         </entry>
@@ -168,8 +140,12 @@
       <find>fold_le</find>
       <find>uni</find>
       <find>equations</find>
-      <find>fourth_action</find>
       <find>fourth_action_replace</find>
+      <find>fourth_action</find>
+      <find>build_system</find>
+      <find>solve_equations</find>
+      <find>delete_repeat</find>
+      <find>(</find>
     </findStrings>
     <replaceStrings>
       <replace>token</replace>
@@ -235,7 +211,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546014282467" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546024045913" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/c.ml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -291,12 +267,13 @@
       <workItem from="1545733431165" duration="809000" />
       <workItem from="1545817910334" duration="18310000" />
       <workItem from="1545930880527" duration="3118000" />
-      <workItem from="1545979083749" duration="10300000" />
+      <workItem from="1545979083749" duration="14751000" />
+      <workItem from="1546091511492" duration="5957000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98671000" />
+    <option name="totallyTimeSpent" value="109079000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -311,7 +288,7 @@
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6318584" visible="true" weight="0.12106136" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6318584" visible="true" weight="0.12216695" />
       <window_info id="Structure" order="1" sideWeight="0.3681416" side_tool="true" weight="0.21890548" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -433,13 +410,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tree.ml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/solve.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -447,10 +417,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tree.ml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="27" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/c.ml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="285" column="34" selection-start-line="285" selection-start-column="34" selection-end-line="285" selection-end-column="34" />
+        <state relative-caret-position="1790">
+          <caret line="252" column="129" selection-start-line="252" selection-start-column="129" selection-end-line="252" selection-end-column="129" />
         </state>
       </provider>
     </entry>
