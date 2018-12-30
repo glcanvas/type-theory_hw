@@ -21,6 +21,15 @@ let rec  write_to_buffer buffer expression=
  print_string (Buffer.contents out_buffer);;
 *)
 
+let rec  write_to_string expression =
+    let token = expression in
+        match token with
+            | Application (a,b) ->      "(" ^ (write_to_string a) ^ " " ^ (write_to_string b) ^ ")"
+
+            | Abstraction (a,b) ->      (String.concat "" ["(\\";a;"."]) ^ (write_to_string b) ^ ")"
+
+            | Variable(a)       ->      a;;
+
 module AlgebraMap = Map.Make(String);;
 
 module AbstractVar = Map.Make(String);;
@@ -30,9 +39,9 @@ exception MatchEquation of string;;
 type algebra =  Var of string (* constant *)
             |   Func of string * algebra * algebra (* for expression like -> smth smth *);;
 
-type tmp_derivation =   OneArg of algebra
-                        | TwoArg of algebra * tmp_derivation
-                        | ThreeArg of algebra * tmp_derivation * tmp_derivation ;;
+type tmp_derivation =   BuildTypeVar of algebra
+                        | BuildTypeAbstr of algebra * algebra * tmp_derivation
+                        | BuildTypeAppl of algebra * algebra * algebra * tmp_derivation * tmp_derivation ;;
 
 let common_variable = "a";;
 
@@ -42,7 +51,7 @@ let rec algebra_to_string expression =
     let token = expression in
         match token with
             | Var(a) -> a
-            | Func(a, b , c) -> String.concat "" [a ; " (" ; (algebra_to_string b) ; " " ; (algebra_to_string c); ")"];;
+            | Func(a, b , c) -> String.concat "" ["(" ; (algebra_to_string b) ; a ; (algebra_to_string c); ")"];;
 
 
 
@@ -64,7 +73,7 @@ let update_variable var =
                                                 let merged_equation = custom_merge union_a union_b in
                                                     let merged_map = AbstractVar.fold AbstractVar.add last_map_a last_map_b in
                                                         let algebra_type = Func ("->", term_b, Var(new_var)) in
-                                                            let derivation = ThreeArg(algebra_type, derivation_a, derivation_b) in
+                                                            let derivation = BuildTypeAppl(term_a, term_b, Var new_var, derivation_a, derivation_b) in
                                                                 let added_equation = merged_equation @ [(term_a, algebra_type)] in
                                                                     (added_equation, Var(new_var), merged_map, last_unbound_map_b, new_var, derivation)
 
@@ -72,25 +81,25 @@ let update_variable var =
                                             let updated_map = AbstractVar.add a new_free_var abstaction_name in
                                                 let union_b, term_b, last_map_b, last_unbound_map_b, last_var_b, deriavtion_b = build_system b new_free_var updated_map unbound_names in
                                                     let new_var = update_variable last_var_b in
-                                                        let algebra_type = Func ("->", Var(new_free_var), term_b) in
-                                                            let derivation = TwoArg(algebra_type, deriavtion_b) in
+                                                        let algebra_type = Func ("->", Var new_free_var, term_b) in
+                                                            let derivation = BuildTypeAbstr(Var new_free_var, term_b, deriavtion_b) in
                                                                 (union_b, algebra_type, last_map_b, last_unbound_map_b, new_var, derivation)
 
             | Variable (a)       ->     let contains_variable = AbstractVar.mem a abstaction_name in
                                             if contains_variable then
                                                 let variable_name = AbstractVar.find a abstaction_name in
                                                     let algebra_type = Var(variable_name) in
-                                                        ([], algebra_type, abstaction_name, unbound_names, free_var, OneArg algebra_type)
+                                                        ([], algebra_type, abstaction_name, unbound_names, free_var, BuildTypeVar algebra_type)
                                             else
                                                 let unbound_var = AbstractVar.mem a unbound_names in
                                                     match unbound_var with
                                                     | true -> let var_name = AbstractVar.find a unbound_names in
                                                                 let algebra_type = Var var_name in
-                                                                    ([], algebra_type, abstaction_name, unbound_names, free_var, OneArg algebra_type)
+                                                                    ([], algebra_type, abstaction_name, unbound_names, free_var, BuildTypeVar algebra_type)
                                                     | false -> let new_var = update_variable free_var in
                                                                     let added_bound_names = AbstractVar.add a new_var unbound_names in
                                                                             let algebra_type = Var(new_var) in
-                                                                                ([], algebra_type, abstaction_name, added_bound_names, new_var, OneArg algebra_type);;
+                                                                                ([], algebra_type, abstaction_name, added_bound_names, new_var, BuildTypeVar algebra_type);;
 
 let encure_array eq_system =
     let double_list = List.map (fun x-> (x,(fst x, snd x))) eq_system in
@@ -192,10 +201,8 @@ let fourth_action equations =
                                                                                 | None, k2 -> k2
                                                                                 | k1, None -> k1
                                                                               ) a b) (AbstractVar.empty) tmp_map_list in
-                                                  (*AbstractVar.iter (fun k v -> Printf.printf "%s <=> %d\n" k v) result_map; for debug *)
                     let filtered_map = AbstractVar.filter (fun k v -> v > 1) result_map in
                         let list_of_vars_term = available_map equations in
-                        (*List.iter (fun it -> Printf.printf "var = %s term = %s \n" (algebra_to_string (fst it)) (algebra_to_string(snd it))) list_of_vars_term);*)
                             let filtered_list = List.filter (fun item -> let lft, rght = item in
                                                                 match lft with
                                                                 | Var(a) -> AbstractVar.mem a filtered_map
@@ -286,26 +293,44 @@ let rec replace_in_type map_solved_equations expression_type =
                             let right = replace_in_type map_solved_equations c in
                                 Func (a, left, right);;
 
-let rec constuct_type map_solved_equations unbounded_names expression derivation =
-    match expression, derivation with
-    | Variable(a), OneArg(tp)                   -> if AbstractVar.mem a unbounded_names then
-                                                        AbstractVar.find a unbounded_names
-                                                   else
-                                                        replace_in_type map_solved_equations tp
-    | Abstraction(a, b), TwoArg(tp, c)          -> replace_in_type map_solved_equations tp
-    | Application(a, b), ThreeArg(tp, c, d)     ->  print_string (algebra_to_string tp);
+let repeat_stars n =
+    String.concat "" (Array.to_list (Array.make n "*   "));;
 
-                                                    replace_in_type map_solved_equations tp;;
-(*
-\f.\x.(f(f x))
-\f.(\x. f (x x)) (\x. f (x x))
-(\x.x)(\y.y)(\x.x)(\x.x)(\x.x)(\x.x)(\x.x)(\x.x)(\x.x)(\x.x)(\x.x)(\x.x)
-\x.\y.\z.(x z)(y z)
 
-[(Var "c",Var "e");(Var "d", Var "e");(Var "f", Var "e");(Var "e", Var "g");]
-*)
+let rec constuct_type map_solved_equations unbounded_names expression derivation bounded_names depth =
+    let unbounded = AbstractVar.fold (fun k v lst -> lst @ [(k ^ " : " ^ (algebra_to_string v))] ) unbounded_names [] in
+    let bounded = AbstractVar.fold (fun k v lst -> lst @ [(k ^ " : " ^ (algebra_to_string v))] ) bounded_names unbounded in
+    let list_of_left = String.concat ", " bounded in
+        print_string (repeat_stars depth);
+        print_string list_of_left;
+        print_string " |- ";
+        match expression, derivation with
+        | Variable(a), BuildTypeVar(tp) -> (let exist = AbstractVar.mem a unbounded_names in
+                                                match exist with
+                                                | true ->   let right = AbstractVar.find a unbounded_names in
+                                                    print_string (a ^ " : " ^ (algebra_to_string right));
+                                                | false ->  let right = replace_in_type map_solved_equations tp in
+                                                    print_string (a ^ " : " ^ (algebra_to_string right));
+                                            );
+                                            print_string " [rule #1]\n"
 
-let e = Lexing.from_string "\f.\x.f(f(f(f(f(f x)))))";;
+        | Abstraction(a, b), BuildTypeAbstr(tp_a, tp_b, tp_inner) -> let tp_a_repl = replace_in_type map_solved_equations tp_a in
+                                                                        let tp_b_repl = replace_in_type map_solved_equations tp_b in
+                                                                            let abstraction = Func("->",tp_a_repl, tp_b_repl) in
+                                                                                let abst_string = write_to_string (Abstraction(a,b)) in
+                                                                                    print_string (abst_string ^ " : " ^ (algebra_to_string abstraction));
+                                                                                    print_string " [rule #3]\n";
+                                                                                    constuct_type map_solved_equations unbounded_names b tp_inner (AbstractVar.add a tp_a_repl bounded_names) (depth + 1)
+        | Application(a, b), BuildTypeAppl(tp_a, tp_b, tp_c, tp_in_a, tp_in_b)  -> let tp_a_repl = replace_in_type map_solved_equations tp_a in
+                                                                                        let tp_b_repl = replace_in_type map_solved_equations tp_b in
+                                                                                            let tp_c_repl = replace_in_type map_solved_equations tp_c in
+                                                                                                let appl_string = write_to_string (Application (a,b)) in
+                                                                                                    print_string (appl_string ^ " : " ^ (algebra_to_string tp_c_repl));
+                                                                                                    print_string " [rule #2]\n";
+                                                                                                    constuct_type map_solved_equations unbounded_names a tp_in_a bounded_names (depth + 1);
+                                                                                                    constuct_type map_solved_equations unbounded_names b tp_in_b bounded_names (depth + 1);;
+
+let e = Lexing.from_channel stdin;;(*Lexing.from_string "\x.\y. x";;*)
 let d = (Parser.lambdaParser Lexer.main)  e;;
 
 
@@ -313,36 +338,13 @@ let empty_bounded_names = AbstractVar.empty;;
 let emplty_unbounded_names = AbstractVar.empty;;
 let my_equitatins, lambda_type, bounded_names, unbounded_names, last_free_name, result_derivation = build_system d common_variable empty_bounded_names emplty_unbounded_names;;
 
-
 let ok,eq =  solve_equations my_equitatins;;
 
-(*print_string "equations: \n";;
-List.iter (fun a -> print_string ((algebra_to_string (fst a)) ^ " = ");
-                                   print_string ((algebra_to_string (snd a)  ) ^ "\n")) my_equitatins;;
-
-print_string "bounded names = \n";;
-AbstractVar.iter (fun a b ->  print_string ("key: " ^ a ^ " value: " ^ b ^ "\n")) bounded_names;;
-
-print_string "!!!! unbounded names = \n";;
-AbstractVar.iter (fun a b ->  print_string ("key: " ^ a ^ " value: " ^ b ^ "\n")) unbounded_names;;
-
-print_string "expression type = \n";;
-print_string ((algebra_to_string lambda_type) ^ "\n");;
-*)
 match ok with
-    | true ->   print_string "solved system=\n";
-                  List.iter (fun a -> print_string ((algebra_to_string (fst a)) ^ " = ");
-                            print_string ((algebra_to_string (snd a)  ) ^ "\n")) eq
+    | true ->
+                 let maped_eq = make_map_from_list eq in
+                 let solved_unbound_variabes = AbstractVar.map (fun v -> replace_in_type maped_eq (Var v))  unbounded_names in
+                    constuct_type maped_eq solved_unbound_variabes d result_derivation (AbstractVar.empty) 0
 
     | false ->  Printf.printf "Expression has no type\n"
 ;;
-
-let maped_eq = make_map_from_list eq;;
-let solved_unbound_variabes = AbstractVar.map (fun v -> replace_in_type maped_eq (Var v))  unbounded_names;;
-
-let resilt = constuct_type maped_eq solved_unbound_variabes d result_derivation;;
-print_string "====================\n";;
-print_string (algebra_to_string resilt);;
-print_string "\n";;
-
-print_string (algebra_to_string (replace_in_type maped_eq lambda_type));;
