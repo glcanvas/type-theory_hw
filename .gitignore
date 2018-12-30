@@ -1,4 +1,7 @@
 /.idea
 /_build
+_build/
+.idea/
 *.native
 *.iml
+*.zip
