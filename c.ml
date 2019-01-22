@@ -1,25 +1,4 @@
 open Tree;;
-(*
-let out_buffer = Buffer.create 2048;;
-let in_buffer = Buffer.create 2048;;
-let rec  write_to_buffer buffer expression=
-    let token = expression in
-        match token with
-            | Application (a,b) ->      Buffer.add_char buffer '(';
-                                        write_to_buffer buffer a;
-                                        Buffer.add_char buffer ' ';
-                                        write_to_buffer buffer b;
-                                        Buffer.add_char buffer ')'
-
-            | Abstraction (a,b) ->      Buffer.add_string buffer (String.concat "" ["(\\";a;"."]);
-                                        write_to_buffer buffer b;
-                                        Buffer.add_char buffer ')';
-
-            | Variable(a)       ->      Buffer.add_string buffer a;;
- write_to_buffer out_buffer d;;
- Buffer.add_char out_buffer '\n';;
- print_string (Buffer.contents out_buffer);;
-*)
 
 let rec  write_to_string expression =
     let token = expression in
@@ -33,8 +12,6 @@ let rec  write_to_string expression =
 module AlgebraMap = Map.Make(String);;
 
 module AbstractVar = Map.Make(String);;
-
-exception MatchEquation of string;;
 
 type algebra =  Var of string (* constant *)
             |   Func of string * algebra * algebra (* for expression like -> smth smth *);;
@@ -330,7 +307,7 @@ let rec constuct_type map_solved_equations unbounded_names expression derivation
                                                                                                     constuct_type map_solved_equations unbounded_names a tp_in_a bounded_names (depth + 1);
                                                                                                     constuct_type map_solved_equations unbounded_names b tp_in_b bounded_names (depth + 1);;
 
-let e = Lexing.from_channel stdin;;(*Lexing.from_string "\x.\y. x";;*)
+let e = Lexing.from_channel stdin;;
 let d = (Parser.lambdaParser Lexer.main)  e;;
 
 
