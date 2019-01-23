@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ba2aba95-38f6-4b7f-ae4b-649773d9388a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_build/c.cmo" beforeDir="false" afterPath="$PROJECT_DIR$/_build/c.cmo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/b.ml" beforeDir="false" afterPath="$PROJECT_DIR$/b.ml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/c.ml" beforeDir="false" afterPath="$PROJECT_DIR$/c.ml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solve.txt" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,6 +20,7 @@
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="2" />
+          <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="2" />
           <entry key="project.open.time.2" value="1" />
@@ -31,7 +28,7 @@
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="4" />
-          <entry key="project.opened" value="24" />
+          <entry key="project.opened" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -60,7 +57,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Makefile" value="283" />
-          <entry key="ml" value="32471" />
+          <entry key="ml" value="35990" />
           <entry key="mll" value="216" />
           <entry key="mly" value="862" />
           <entry key="sh" value="4" />
@@ -68,7 +65,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="OCaml file" value="32471" />
+          <entry key="OCaml file" value="35990" />
           <entry key="PLAIN_TEXT" value="1365" />
         </counts>
       </usages-collector>
@@ -79,11 +76,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/b.ml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-              <folding>
-                <element signature="e#51#3353#0" />
-              </folding>
+            <state relative-caret-position="1635">
+              <caret line="109" column="17" selection-start-line="109" selection-start-column="17" selection-end-line="109" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -100,8 +94,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/c.ml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1166">
-              <caret line="81" column="35" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="35" />
+            <state relative-caret-position="299">
+              <caret line="231" column="16" selection-start-line="231" selection-start-column="8" selection-end-line="231" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -119,10 +113,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>prt</find>
-      <find>token</find>
-      <find>Buffer.add_string</find>
-      <find>new_var</find>
       <find>get_num_of_func_symb</find>
       <find>==</find>
       <find>fold_le</find>
@@ -141,7 +131,6 @@
       <find>algebra_to_string</find>
       <find>common_variable</find>
       <find>MatchEquation</find>
-      <find>StringMap</find>
       <find>mem</find>
       <find>x</find>
       <find>boundedVars</find>
@@ -149,6 +138,11 @@
       <find>de</find>
       <find>fun</find>
       <find>DeApplication</find>
+      <find>solve_eq</find>
+      <find>StringMap</find>
+      <find>level</find>
+      <find>begin</find>
+      <find>end</find>
     </findStrings>
     <replaceStrings>
       <replace>token</replace>
@@ -198,6 +192,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -214,14 +210,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548161738708" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548162393945" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/b.ml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -286,11 +280,12 @@
       <workItem from="1548003028184" duration="1217000" />
       <workItem from="1548057145252" duration="19837000" />
       <workItem from="1548147485699" duration="6252000" />
+      <workItem from="1548234974801" duration="17682000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152909000" />
+    <option name="totallyTimeSpent" value="170591000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -305,7 +300,7 @@
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6318584" visible="true" weight="0.12990603" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6318584" visible="true" weight="0.1310116" />
       <window_info id="Structure" order="1" sideWeight="0.3681416" side_tool="true" weight="0.21890548" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -314,7 +309,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36192468" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2332636" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -407,13 +402,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/parser/lexer.mll">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -428,6 +416,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/c.ml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="231" column="16" selection-start-line="231" selection-start-column="8" selection-end-line="231" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tree.ml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -435,20 +437,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/c.ml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1166">
-          <caret line="81" column="35" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/b.ml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#51#3353#0" />
-          </folding>
+        <state relative-caret-position="1635">
+          <caret line="109" column="17" selection-start-line="109" selection-start-column="17" selection-end-line="109" selection-end-column="17" />
         </state>
       </provider>
     </entry>
