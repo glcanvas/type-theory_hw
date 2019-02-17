@@ -42,7 +42,7 @@ let toBruijn expression =
                                                                 )
                             )
                             in
-                                (inner_func expression 0, intNameT);;
+                                 (inner_func expression 0, intNameT);;
 
 let intToString number =
     Printf.sprintf "v%d" number;;
@@ -59,9 +59,9 @@ let bruijnToString expression maped =
                                                 (String.concat "" ["(\\";(intToString (level + 1));"."]) ^ right ^ ")"
 
             | DeVariable (a)        ->      (
-                                                match (a < level) with
-                                                    | true  ->      Table.find lambdaTable (level - a)
-                                                    | false ->      Table.find maped a
+                                                match a < level with
+                                                    | true  ->      Table.find lambdaTable (level - a) (*intToString (level - a)*)
+                                                    | false ->      Table.find maped a(*intToString a*)
                                             )
             )
         in inner expression 0
@@ -76,9 +76,10 @@ let rec addLevel expression level added_level =
     | DeAbstraction(a) ->       let right = addLevel a (level + 1) added_level in
                                     DeAbstraction right
 
-    | DeVariable(a) ->          (match a >= level with
-                                    | true  ->     DeVariable (a + added_level)
-                                    | false ->     DeVariable a
+    | DeVariable(a) ->          (
+                                    match a >= level && a < 1488 with
+                                        | true  ->     DeVariable (a + added_level)
+                                        | false ->     DeVariable a
                                 )
 ;;
 
@@ -135,4 +136,5 @@ let d = (Parser.lambdaParser Lexer.main)  b;;
 let b_ex, vars = toBruijn d;;
 
 let redu = reductionLoop b_ex;;
+(*Table.iter (fun a b -> Printf.printf "%d %s\n" a b) vars;;*)
 Printf.printf "%s" (bruijnToString redu vars);;
